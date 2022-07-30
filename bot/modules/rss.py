@@ -39,7 +39,7 @@ def rss_get(update, context):
                     except IndexError:
                         link = rss_d.entries[item_num]['link']
                     item_info += f"<b>Name: </b><code>{rss_d.entries[item_num]['title'].replace('>', '').replace('<', '')}</code>\n"
-                    item_info += f"<b>Link: </b><code>{link}</code>\n\n"
+                    item_info += f"<b>Link: </b>{link}\n\n#RSS - ccgnimex\n"
                 editMessage(item_info, msg)
             except IndexError as e:
                 LOGGER.error(str(e))
@@ -223,8 +223,8 @@ def rss_monitor(context):
                 if RSS_COMMAND is not None:
                     feed_msg = f"{RSS_COMMAND} {url}"
                 else:
-                    feed_msg = f"<b>Name: </b><code>{rss_d.entries[feed_count]['title'].replace('>', '').replace('<', '')}</code>\n\n"
-                    feed_msg += f"<b>Link: </b><code>{url}</code>"
+                    feed_msg = f"<b>Name: </b><code>{rss_d.entries[feed_count]['title'].replace('>', '').replace('<', '')}</code>\n"
+                    feed_msg += f"<b>Link: </b><code>{url}</code>\n\n#RSS - ccgnimex\n"
                 sendRss(feed_msg, context.bot)
                 feed_count += 1
                 sleep(5)
