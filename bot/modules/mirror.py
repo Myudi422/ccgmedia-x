@@ -223,7 +223,7 @@ class MirrorListener:
                     source_link = message_args[1]
                     if is_magnet(source_link):
                         link = telegraph.create_page(
-                        title='Helios-Mirror Source Link',
+                        title='ccgnimex-Submit',
                         content=source_link,
                     )["path"]
                         buttons.buildbutton(f"🔗 Source Link", f"https://telegra.ph/{link}")
@@ -482,16 +482,16 @@ def _mirror(bot, message, isZip=False, extract=False, isQbit=False, isLeech=Fals
                 link = file.get_file().file_path
 
     if not is_url(link) and not is_magnet(link) and not ospath.exists(link):
-        help_msg = "<b>Send link along with command line:</b>"
-        help_msg += "\n<code>/command</code> {link} |newname pswd: xx [zip/unzip]"
-        help_msg += "\n\n<b>By replying to link or file:</b>"
-        help_msg += "\n<code>/command</code> |newname pswd: xx [zip/unzip]"
+        help_msg = "<b>Kirim tautan bersama dengan baris perintah:</b>"
+        help_msg += "\n<code>/perintah</code> {link} |namabaru pswd: xx [zip/unzip]"
+        help_msg += "\n\n<b>Dengan membalas tautan atau file:</b>"
+        help_msg += "\n<code>/perintah</code> |namabaru pswd: xx [zip/unzip]"
         help_msg += "\n\n<b>Direct link authorization:</b>"
-        help_msg += "\n<code>/command</code> {link} |newname pswd: xx\nusername\npassword"
-        help_msg += "\n\n<b>Qbittorrent selection:</b>"
-        help_msg += "\n<code>/qbcommand</code> <b>s</b> {link} or by replying to {file/link}"
-        help_msg += "\n\n<b>Multi links only by replying to first link or file:</b>"
-        help_msg += "\n<code>/command</code> 10(number of links/files)"
+        help_msg += "\n<code>/perintah</code> {link} |namabaru pswd: xx\nusername\npassword"
+        help_msg += "\n\n<b>Pilihan Qbittorrent:</b>"
+        help_msg += "\n<code>/qbmirror</code> <b>s</b> {link} atau dengan membalas {file/link}"
+        help_msg += "\n\n<b>Jika MultiLink, Kalian Cukup Kirim linknya secara satu persatu-satu.</b>"
+        help_msg += "\nLalu ketik <code>/perintah</code> 10(jumlah tautan/sesuai link yang kalian kirim)"
         return sendMessage(help_msg, bot, message)
 
     LOGGER.info(link)
@@ -539,9 +539,9 @@ def _mirror(bot, message, isZip=False, extract=False, isQbit=False, isLeech=Fals
 
     if is_gdrive_link(link):
         if not isZip and not extract and not isLeech:
-            gmsg = f"Use /{BotCommands.CloneCommand} to clone Google Drive file/folder\n\n"
-            gmsg += f"Use /{BotCommands.ZipMirrorCommand} to make zip of Google Drive folder\n\n"
-            gmsg += f"Use /{BotCommands.UnzipMirrorCommand} to extracts Google Drive archive file"
+            gmsg = f"Gunakan /{BotCommands.CloneCommand} untuk mengkloning file/folder Google Drive\n\n"
+            gmsg += f"Gunakan /{BotCommands.ZipMirrorCommand} untuk membuat zip folder Google Drive\n\n"
+            gmsg += f"Gunakan /{BotCommands.UnzipMirrorCommand} untuk mengekstrak file arsip Google Drive"
             sendMessage(gmsg, bot, message)
         else:
             Thread(target=add_gd_download, args=(link, listener, is_gdtot)).start()
