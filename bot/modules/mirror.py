@@ -275,6 +275,7 @@ class MirrorListener:
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
                 msg += f'\n<b>SubFolders: </b>{folders}'
                 msg += f'\n<b>Files: </b>{files}'
+                msg += f'\nRename Batch: <a href=https://www.appsscript.ninja/bulk-renamer-for-drive>RenameBulk</a>'
             msg += f'\n\n<b>cc: </b>{self.tag}'
             buttons = ButtonMaker()
             buttons.buildbutton("☁️ Drive Link", link)
