@@ -28,7 +28,7 @@ class _BotCommands:
         self.PingCommand = getCommand('PING_COMMAND', f'ping{CMD_INDEX}')
         self.RestartCommand =  getCommand('RESTART_COMMAND', f'restart{CMD_INDEX}')
         self.StatsCommand = getCommand('STATS_COMMAND', f'stats{CMD_INDEX}')
-        self.HelpCommand = getCommand('HELP_COMMAND', f'help{CMD_INDEX}')
+        self.HelpCommand = getCommand('HELP_COMMAND', f'helpmirror{CMD_INDEX}')
         self.LogCommand = getCommand('LOG_COMMAND', f'log{CMD_INDEX}')
         self.CloneCommand = getCommand('CLONE_COMMAND', f'clone{CMD_INDEX}')
         self.CountCommand = getCommand('COUNT_COMMAND', f'count{CMD_INDEX}')
