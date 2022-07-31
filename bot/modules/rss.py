@@ -224,7 +224,7 @@ def rss_monitor(context):
                     feed_msg = f"{RSS_COMMAND} {url}"
                 else:
                     feed_msg = f"<b>Name: </b><code>{rss_d.entries[feed_count]['title'].replace('>', '').replace('<', '')}</code>\n"
-                    feed_msg += f"<b>Link: </b><code>{url}</code>\n\n#RSS - ccgnimex\n"
+                    feed_msg += f"<b>Link: </b>{url}\n\n#RSS - ccgnimex\n"
                 sendRss(feed_msg, context.bot)
                 feed_count += 1
                 sleep(5)
