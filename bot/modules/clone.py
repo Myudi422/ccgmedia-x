@@ -150,7 +150,11 @@ def _clone(message, bot, multi=0):
                 LOGGER.warning(e)
                 return
     else:
-        sendMessage('Send Gdrive or gdtot or appdrive link along with command or by replying to the link by command', bot, message)
+        if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
+            sendMessage('Send Gdrive or gdtot or appdrive link along with command or by replying to the link by command', bot, message)
+        else:
+            sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
+    
 
 @new_thread
 def cloneNode(update, context):
