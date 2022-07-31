@@ -81,10 +81,10 @@ def _clone(message, bot, multi=0):
         if res != "":
             return sendMessage(res, bot, message)
         if STOP_DUPLICATE:
-            LOGGER.info('Checking File/Folder if already in Drive...')
+            LOGGER.info('Memeriksa File/Folder jika sudah ada di Drive...')
             smsg, button = gd.drive_list(name, True, True)
             if smsg:
-                msg3 = "File/Folder is already available in Drive.\nHere are the search results:"
+                msg3 = "File/Folder sudah tersedia di Drive.\nBerikut hasil pencariannya:"
                 return sendMarkup(msg3, bot, message, button)
         if CLONE_LIMIT is not None:
             LOGGER.info('Checking File/Folder Size...')
@@ -150,11 +150,7 @@ def _clone(message, bot, multi=0):
                 LOGGER.warning(e)
                 return
     else:
-        if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
-            sendMessage('Send Gdrive or gdtot or appdrive link along with command or by replying to the link by command', bot, message)
-        else:
-            sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
-    
+        sendMessage('Kirim tautan Gdrive atau gdtot atau appdrive bersama dengan perintah atau dengan membalas tautan dengan perintah', bot, message)
 
 @new_thread
 def cloneNode(update, context):
