@@ -22,7 +22,7 @@ pybase64
 Pyrogram==2.0.53
 python-dotenv
 python-magic
-python-telegram-bot
+python-telegram-bot==13.13
 qbittorrent-api
 requests
 telegraph
