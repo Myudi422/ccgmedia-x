@@ -17,7 +17,7 @@ psutil
 psycopg2-binary
 pybase64
 pycryptodomex
-pyrogram
+Pyrogram==1.4.16
 python-dotenv
 python-magic
 python-telegram-bot
